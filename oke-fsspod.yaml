@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: oke-fsspod1
+spec:
+  containers:
+  - name: web
+    image: nginx
+    volumeMounts:
+      - name: nfs
+        mountPath: "/usr/share/nginx/html/"
+    ports:
+      - containerPort: 80
+        name: http
+  volumes:
+    - name: nfs
+      persistentVolumeClaim: 
+        claimName: oke-fsspvc1
+        readOnly: false
+  nodeSelector:
+      nodeName: node1
