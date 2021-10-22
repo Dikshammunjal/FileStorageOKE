@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: oke-fsspv1
+spec:
+  storageClassName: oci-fss1
+  capacity:
+    storage: 100Gi
+  accessModes:
+    - ReadWriteMany
+  mountOptions:
+    - nosuid
+  nfs:
+    server: 10.0.0.193
+    path: "/FileSystem-20210921-1327-54"
+    readOnly: false
