@@ -1,16 +1,18 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: oke-fsspv1
+ name: oke-fsspv
 spec:
-  storageClassName: oci-fss1
-  capacity:
-    storage: 100Gi
-  accessModes:
-    - ReadWriteMany
-  mountOptions:
-    - nosuid
-  nfs:
-    server: 10.0.0.193
-    path: "/FileSystem-20210921-1327-54"
-    readOnly: false
+ storageClassName: oci-fss
+ capacity:
+  storage: 100Gi
+ accessModes:
+  - ReadWriteMany
+ mountOptions:
+  - nosuid
+ nfs:
+# Replace this with the IP of your FSS file system in OCI
+  server: 10.0.0.4
+# Replace this with the Path of your FSS file system in OCI
+  path: "/OKEFile1"
+  readOnly: false
