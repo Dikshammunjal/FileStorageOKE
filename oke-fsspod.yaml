@@ -15,7 +15,7 @@ spec:
   volumes:
     - name: nfs
       persistentVolumeClaim: 
-        claimName: oke-fsspvc1
+        claimName: oke-fsspvc
         readOnly: false
   nodeSelector:
       nodeName: node1
